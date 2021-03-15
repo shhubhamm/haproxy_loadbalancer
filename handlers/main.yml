@@ -1,0 +1,6 @@
+---
+# handlers file for haproxy_loadbalancer
+- name: restart load balancer
+  service:
+        name: "{{ service_name }}"
+        state: restarted

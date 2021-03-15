@@ -1,0 +1,5 @@
+---
+# vars file for haproxy_loadbalancer
+
+app_name: haproxy
+service_name: haproxy

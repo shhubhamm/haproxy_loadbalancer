@@ -1,0 +1,19 @@
+---
+# tasks file for haproxy_loadbalancer
+
+- name: Installing the Package
+  package:
+        name: "{{ app_name }}"
+        state: present
+
+- name: Copying The Configuration File
+  template:
+        src: "templates/haproxy.j2"
+        dest: "/etc/haproxy/haproxy.cfg"
+  notify: restart load balancer
+        
+- name: Starting The Service
+  service:
+        name: "{{ service_name }}"
+        state: started
+        enabled: yes
